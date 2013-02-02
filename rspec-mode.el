@@ -346,6 +346,7 @@
   (cond ((and rspec-use-opts-file-when-available
               (file-readable-p (rspec-spec-opts-file)))
          (concat "--options " (rspec-spec-opts-file)))
+        ((rspec-zeus-p) "") ;; zeus does not accept typical rspec options for now
         (t (or default-options
             (rspec-default-options)))))
 
